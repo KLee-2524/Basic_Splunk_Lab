@@ -49,6 +49,6 @@ resource "aws_instance" "splunk-vm" {
   key_name = "terraform-key-pair"
 
   tags = {
-    Name = "Splunk-VM-${var.attendee_number}"
+    Name = "Splunk-VM-${var.attendee_number}-${var.attendee_name}"
   }
 }

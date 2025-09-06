@@ -25,6 +25,7 @@ variable "attendee_usernames" {
   type = list(string)
 
   default = [
+    "rastley",
     "rreynolds"
   ]
 }
@@ -40,6 +41,7 @@ module "splunk-lab" {
     for_each = local.attendee_index_map
 
     attendee_number = each.value
+    attendee_name   = each.key
     vpc_id          = aws_vpc.FAST-vpc.id
     route_table_id  = aws_route_table.FAST-route-table.id
 }

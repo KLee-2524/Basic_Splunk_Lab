@@ -4,6 +4,11 @@ variable "attendee_number" {
     default     = "24"
 }
 
+variable "attendee_name" {
+    description = "Name of each attendee so we can tell which VM belongs to who"
+    type        = string
+}
+
 variable "vpc_id" {
     description = "ID of the lab vpc"
     type        = string
@@ -51,7 +56,7 @@ variable "splunk_setup_script" {
     sudo wget -O splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.3.0/linux/splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb" 
     echo "Splunk download initiated" >> /home/ubuntu/FAST/setup_log.txt
 
-    sudo dpkg -i splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
+    sudo dpkg -i /splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
     echo "Splunk installation initiated" >> /home/ubuntu/FAST/setup_log.txt
 
     cd /opt/splunk/bin
