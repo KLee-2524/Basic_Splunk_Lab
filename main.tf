@@ -43,4 +43,5 @@ module "splunk-lab" {
     attendee_name   = each.key
     vpc_id          = aws_vpc.FAST-vpc.id
     route_table_id  = aws_route_table.FAST-route-table.id
+    PRIVATE_KEY     = var.PRIVATE_KEY
 }
