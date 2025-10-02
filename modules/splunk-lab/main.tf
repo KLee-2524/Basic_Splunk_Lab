@@ -54,7 +54,7 @@ resource "aws_instance" "splunk-vm" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /home/ubuntu/splunk.sh",
-      "TEST_VAR=${TEST_VAR} /home/ubuntu/splunk.sh"
+      "TEST_VAR=$TEST_VAR /home/ubuntu/splunk.sh"
     ]
 
     connection {
