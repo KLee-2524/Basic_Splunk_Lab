@@ -56,14 +56,13 @@ resource "aws_instance" "splunk-vm" {
       "chmod +x /home/ubuntu/splunk.sh",
       "TEST_VAR=$TEST_VAR /home/ubuntu/splunk.sh"
     ]
+  }
 
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = var.PRIVATE_KEY
-      host        = self.public_ip
-    }
-
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.PRIVATE_KEY
+    host        = self.public_ip
   }
 
   tags = {
