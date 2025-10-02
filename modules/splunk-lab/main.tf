@@ -44,9 +44,27 @@ resource "aws_instance" "splunk-vm" {
   
   vpc_security_group_ids = [aws_security_group.FAST-sg.id]
 
-  user_data = file("modules/splunk-lab/splunk.sh.tpl")
-
   key_name = "terraform-key-pair"
+
+  provisioner "file" {
+    content     = file("/modules/splunk-lab/splunk.sh.tpl")
+    destination = "/home/ubuntu/splunk.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /home/ubuntu/splunk.sh",
+      "TEST_VAR=${TEST_VAR} /home/ubuntu/splunk.sh"
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = var.PRIVATE_KEY
+      host        = self.public_ip
+    }
+
+  }
 
   tags = {
     Name = "Splunk-VM-${var.attendee_number}-${var.attendee_name}"

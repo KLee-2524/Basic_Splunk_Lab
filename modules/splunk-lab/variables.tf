@@ -39,3 +39,8 @@ variable "splunk_ami" {
     # WinSer16 = "ami-09896dc1e97cae396"
     # Ubuntu 22.04 = "ami-043b59f1d11f8f189"
 }
+
+variable "PRIVATE_KEY" {
+    type      = string
+    sensitive = true
+}
