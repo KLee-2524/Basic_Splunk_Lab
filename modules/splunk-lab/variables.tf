@@ -40,7 +40,3 @@ variable "splunk_ami" {
     # Ubuntu 22.04 = "ami-043b59f1d11f8f189"
 }
 
-variable "PRIVATE_KEY" {
-    type      = string
-    sensitive = true
-}
