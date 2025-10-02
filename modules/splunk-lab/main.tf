@@ -44,9 +44,7 @@ resource "aws_instance" "splunk-vm" {
   
   vpc_security_group_ids = [aws_security_group.FAST-sg.id]
 
-  user_data = templatefile("modules/splunk-lab/splunk.sh.tpl", {
-    TEST_VAR = var.TEST_VAR
-  })
+  user_data = templatefile("modules/splunk-lab/splunk.sh.tpl")
 
   key_name = "terraform-key-pair"
 
