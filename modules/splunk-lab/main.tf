@@ -47,7 +47,7 @@ resource "aws_instance" "splunk-vm" {
   key_name = "terraform-key-pair"
 
   provisioner "file" {
-    content     = file("/modules/splunk-lab/splunk.sh.tpl")
+    content     = file("${path.module}/splunk.sh.tpl")
     destination = "/home/ubuntu/splunk.sh"
   }
 
