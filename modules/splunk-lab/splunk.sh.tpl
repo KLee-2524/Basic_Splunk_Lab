@@ -9,7 +9,7 @@ echo "apt update initiated" >> /home/ubuntu/FAST/setup_log.txt
 sudo wget -O splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.3.0/linux/splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb" 
 echo "Splunk download initiated" >> /home/ubuntu/FAST/setup_log.txt
 
-sudo dpkg -i /splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
+sudo dpkg -i /home/ubuntu/splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
 echo "Splunk installation initiated" >> /home/ubuntu/FAST/setup_log.txt
 
 cd /opt/splunk/bin
