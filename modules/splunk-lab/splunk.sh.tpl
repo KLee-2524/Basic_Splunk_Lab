@@ -12,6 +12,13 @@ echo "Splunk download initiated" >> /home/ubuntu/FAST/setup_log.txt
 sudo dpkg -i /home/ubuntu/splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
 echo "Splunk installation initiated" >> /home/ubuntu/FAST/setup_log.txt
 
+cd /opt/splunk/etc
+sudo echo "SPLUNK_BINDIP=0.0.0.0" >> splunk-launch.conf
+echo "Splunk bind IP changed" >> /home/ubuntu/FAST/setup_log.txt
+
+sudo ufw allow 8000/tcp
+echo "Firewall updated to allow traffic on port 8000" >> /home/ubuntu/FAST/setup_log.txt
+
 cd /opt/splunk/bin
 echo "Location set to Splunk binaries directory" >> /home/ubuntu/FAST/setup_log.txt
 
