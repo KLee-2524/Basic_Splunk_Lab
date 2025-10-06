@@ -13,7 +13,7 @@ sudo dpkg -i /home/ubuntu/splunk-9.3.0-51ccf43db5bd-linux-2.6-amd64.deb
 echo "Splunk installation initiated" >> /home/ubuntu/FAST/setup_log.txt
 
 cd /opt/splunk/etc
-sudo echo "SPLUNK_BINDIP=0.0.0.0" >> splunk-launch.conf
+sudo sh -c 'echo "SPLUNK_BINDIP=0.0.0.0" >> /opt/splunk/etc/splunk-launch.conf'
 echo "Splunk bind IP changed" >> /home/ubuntu/FAST/setup_log.txt
 
 sudo ufw allow 8000/tcp
