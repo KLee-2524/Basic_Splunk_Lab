@@ -22,10 +22,7 @@ echo "Firewall updated to allow traffic on port 8000" >> /home/ubuntu/FAST/setup
 cd /opt/splunk/bin
 echo "Location set to Splunk binaries directory" >> /home/ubuntu/FAST/setup_log.txt
 
-sudo ./splunk enable boot-start --accept-license
-FASTsplunk
-$TEST_VAR
-$TEST_VAR
+sudo ./splunk enable boot-start --accept-license --no-prompt --answer-yes --seed-passwd $TEST_VAR --user 'FASTsplunk'
 echo "Splunk configured to start on boot and user account created" >> /home/ubuntu/FAST/setup_log.txt
 
 sudo ./splunk start
